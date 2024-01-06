@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="peak">
+
+<head>
+    <title ng-bind="title"></title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/controllers/calcController.js"></script>
+    <script src="app/controllers/consultController.js"></script>
+
+    <base href="/">
+</head>
+
+<body class="bg-dark">
+    <div ng-controller="mainController" class="">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">PEAK</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a ng-class="{ 'active': isActiveController('calcController') }" class="nav-link"
+                                aria-current="page" href="/">Calcular</a>
+                        </li>
+                        <li class="nav-item">
+                            <a ng-class="{ 'active': isActiveController('consultController') }" class="nav-link"
+                                href="/consult">Consultar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div ng-view></div>
+        </div>
+    </div>
+</body>
+
+</html>

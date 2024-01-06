@@ -1,0 +1,33 @@
+<div class="mt-3">
+    <form name="consultForm" ng-submit="submitForm()">
+        <fieldset class="card px-5 py-4 bg-light">
+            <h3 class="mb-3">Consultar usuários</h3>
+            <div class="input-group mb-3">
+                <label for="user" class="form-label">ID do usuário</label>
+                <div class="input-group">
+                    <input id="user" type="number" class="form-control"
+                        placeholder="Digite o ID do usuário para fazer a consulta" aria-label="Recipient's username"
+                        aria-describedby="button-addon2" ng-model="userId" required>
+                    <button class="btn btn-primary" type="submit" id="button-addon2">
+                        <i class="fas fa-search px-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card" ng-if="!error && user && user.key != 0">
+                <div class="card-body text-center">
+                    <h4>Usuário encontrado!</h4>
+                    <h6 class="cart-text mb-0">{{ user.key }} - {{ user.value }}</h6>
+                </div>
+            </div>
+
+            <div class="alert alert-warning" ng-if="!error && user && user.key == 0">
+                O usuário com o ID {{ userId }} não foi encontrado!
+            </div>
+
+            <div class="alert alert-danger" ng-if="error">
+                Ocorreu um erro ao tentar acessar a API. Por favor, verifique o console. Caso o erro persista, entre em contato.
+            </div>
+        </fieldset>
+    </form>
+</div>
